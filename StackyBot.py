@@ -82,6 +82,8 @@ async def on_message(msg):
             currentTechLead = techLead
             metrics[currentTechLead] = 1
 
+    await msg.channel.send(f"Got you for this week, {msg.author.mention}!")
+
 # Start of Slash commands
 # Something the bot does when someone calls its '/' command
 @bot.tree.command(name="hi", description="Say Hi to Stacky!")
