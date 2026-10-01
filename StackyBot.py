@@ -81,8 +81,6 @@ async def on_message(msg):
         if techLead == msg.author.id:
             currentTechLead = techLead
             metrics[currentTechLead] = 1
-    
-    await msg.channel.send(f"Interesting message, {msg.author.mention}")
 
 # Start of Slash commands
 # Something the bot does when someone calls its '/' command
@@ -122,7 +120,7 @@ async def techmetrics(interaction: discord.Interaction):
 @tasks.loop(time=datetime.time(hour=23, minute=0))
 async def resetmetric_weekly():
     day = datetime.datetime.now(datetime.timezone.utc).weekday()
-    if day == 6:
+    if day == 5:
         for techleadId in metrics.keys():
             metrics[techleadId] = 0
 
